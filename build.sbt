@@ -18,7 +18,7 @@ resolvers ++= Seq(
   Resolver.mavenLocal
 )
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % "1.0.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % "1.0.1")
 
 publishMavenStyle := false
 
