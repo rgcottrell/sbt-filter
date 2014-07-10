@@ -4,7 +4,7 @@ organization := "com.slidingautonomy.sbt"
 
 name := "sbt-filter"
 
-version := "1.0.0-SNAPSHOT"
+version := "1.0.0"
 
 scalaVersion := "2.10.4"
 
@@ -20,13 +20,34 @@ resolvers ++= Seq(
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % "1.0.1")
 
-publishMavenStyle := false
-
-publishTo := {
-  if (isSnapshot.value) Some(Classpaths.sbtPluginSnapshots)
-  else Some(Classpaths.sbtPluginReleases)
-}
-
 scriptedSettings
 
 scriptedLaunchOpts <+= version apply { v => s"-Dproject.version=$v" }
+
+publishMavenStyle := true
+
+publishTo := {
+  if (isSnapshot.value) Some("snapshots" at "https://oss.sonatype.org/content/repositories/snapshots")
+  else Some("releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2")
+}
+
+pomExtra :=
+  <url>https://github.com/rgcottrell/sbt-filter</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>git@github.com:rgcottrell/sbt-filter.git</url>
+    <connection>scm:git:git@github.com:rgcottrell/sbt-filter.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>rgcottrell</id>
+      <name>Robert Cottrell</name>
+      <url>https://github.com/rgcottrell</url>
+    </developer>
+  </developers>

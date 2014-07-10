@@ -7,11 +7,16 @@ This plugin may be used to remove any intermediate or unnecessary assets from th
 Only assets directly owned by the project can be filtered. Any assets living in the "lib" subdirectory are
 explicitly left unfiltered.
 
-To use the latest version from GitHub, add the following to the `project/plugins.sbt` of your project:
+Add the plugin to the `project/plugins.sbt` of your project:
 
 ```scala
-lazy val root = project.in(file(".")).dependsOn(sbtFilter)
-lazy val sbtFilter = uri("git://github.com/rgcottrell/sbt-filter")
+addSbtPlugin("com.slidingautonomy.sbt" % "sbt-filter" % "1.0.0")
+```
+
+Add the Sonatype releases resolver:
+
+```scala
+resolvers += Resolver.sonatypeRepo("releases")
 ```
 
 Your project's build file also needs to enable sbt-web plugins. For example with build.sbt:
@@ -23,7 +28,7 @@ lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 The plugin must then be added as a new stage in the asset pipeline.
 
 ```scala
-pipelineStages := Seq(rjs, filter, digest, gzip)
+pipelineStages := Seq(filter)
 ```
 
 ## File Filters
