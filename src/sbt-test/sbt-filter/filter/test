@@ -1,0 +1,10 @@
+# Filter files.
+
+> web-stage
+-$ exists target/web/stage/javascripts/x.coffee
+$ exists target/web/stage/javascripts/x.js
+-$ exists target/web/stage/javascripts/x.js.map
+# Modules in lib are not filtered
+$ exists target/web/stage/lib/vendor/x.coffee
+$ exists target/web/stage/lib/vendor/x.js
+$ exists target/web/stage/lib/vendor/x.js.map
