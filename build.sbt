@@ -4,7 +4,7 @@ organization := "com.slidingautonomy.sbt"
 
 name := "sbt-filter"
 
-version := "1.0.0"
+version := "1.0.1-SNAPSHOT"
 
 scalaVersion := "2.10.4"
 

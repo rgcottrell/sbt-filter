@@ -1,0 +1,5 @@
+# Filter files.
+
+> web-stage
+-$ exists target/web/stage/temp/
+-$ exists target/web/stage/temp/x.coffee

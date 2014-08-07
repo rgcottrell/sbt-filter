@@ -32,7 +32,7 @@ object SbtFilter extends AutoPlugin {
 
       val include = (includeFilter in filter).value
       val exclude = (excludeFilter in filter).value
-      mappings.filter(f => f._1.isDirectory || exclude.accept(f._1) || !include.accept(f._1) || f._2.startsWith("lib/"))
+      mappings.filter(f => exclude.accept(f._1) || !include.accept(f._1) || f._2.startsWith("lib/"))
   }
 
 }
