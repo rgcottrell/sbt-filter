@@ -41,7 +41,7 @@ For example, to remove the original CoffeeScript and LESS sources from the asset
 includeFilter in filter := "*.coffee" || "*.less"
 ```
 
-Alternatively, you may wish to remove all JavaScript files except the concatenated and minified main.js produce by
+Alternatively, you may wish to remove all JavaScript files except the concatenated and minified main.js produced by
 the RequireJS plugin:
 
 ```scala
@@ -50,7 +50,7 @@ includeFilter in filter := "*.js"
 excludeFilter in filter := "main.js"
 ```
 
-You can also remove a folder and all of its contents (including sub-folders). e.g. the "javascripts/working" folder and it contents with:
+You can also remove a folder and all of its contents (including sub-folders). e.g. the "javascripts/working" folder and its contents with:
 
 ```scala
 includeFilter in filter := PathFilter((sourceDirectory in Assets).value / "javascripts" / "working")
