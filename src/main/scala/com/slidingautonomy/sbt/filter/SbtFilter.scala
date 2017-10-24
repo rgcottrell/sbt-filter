@@ -9,6 +9,21 @@ object Import {
 
   val filter = TaskKey[Pipeline.Stage]("filter", "Filter intermediate files on the asset pipeline.")
 
+  /** A FileFilter that selects all files/folders that exist within a `path`. Including the path. */
+  final case class PathFilter(path: java.nio.file.Path) extends FileFilter {
+
+    def accept(file: File): Boolean = file.toPath.startsWith(path)
+
+  }
+
+  object PathFilter {
+
+    def apply(path: String): PathFilter = apply(new File(path))
+
+    def apply(path: java.io.File): PathFilter = apply(path.toPath)
+
+  }
+
 }
 
 object SbtFilter extends AutoPlugin {
