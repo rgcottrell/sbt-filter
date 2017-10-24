@@ -32,7 +32,10 @@ object SbtFilter extends AutoPlugin {
 
       val include = (includeFilter in filter).value
       val exclude = (excludeFilter in filter).value
-      mappings.filter(f => exclude.accept(f._1) || !include.accept(f._1) || f._2.startsWith("lib/"))
+      mappings.filter {
+        case (file, path) =>
+          !include.accept(file) || exclude.accept(file) || path.startsWith("lib" + java.io.File.separator)
+      }
   }
 
 }
