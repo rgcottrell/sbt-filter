@@ -49,3 +49,9 @@ includeFilter in filter := "*.js"
 
 excludeFilter in filter := "main.js"
 ```
+
+You can also remove a folder and all of its contents (including sub-folders). e.g. the "javascripts/working" folder and it contents with:
+
+```scala
+includeFilter in filter := PathFilter((sourceDirectory in Assets).value / "javascripts" / "working")
+```
