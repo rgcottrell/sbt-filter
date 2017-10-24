@@ -4,9 +4,9 @@ organization := "com.slidingautonomy.sbt"
 
 name := "sbt-filter"
 
-version := "1.0.1"
+version := "1.0.2-SNAPSHOT"
 
-scalaVersion := "2.10.4"
+crossSbtVersions := Seq("1.0.2", "0.13.16")
 
 scalacOptions += "-feature"
 
@@ -18,11 +18,9 @@ resolvers ++= Seq(
   Resolver.mavenLocal
 )
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % "1.0.1")
+addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % "1.2.2")
 
-scriptedSettings
-
-scriptedLaunchOpts <+= version apply { v => s"-Dproject.version=$v" }
+scriptedLaunchOpts += ("-Dproject.version=" + version.value)
 
 publishMavenStyle := true
 
