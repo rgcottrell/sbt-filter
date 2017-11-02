@@ -1,6 +1,6 @@
 # Filter files.
 
-> web-stage
+> webStage
 -$ exists target/web/stage/javascripts/x.coffee
 $ exists target/web/stage/javascripts/x.js
 -$ exists target/web/stage/javascripts/x.js.map

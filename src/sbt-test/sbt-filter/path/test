@@ -1,0 +1,16 @@
+# Filter path.
+
+> webStage
+# Path is filtered
+-$ exists target/web/stage/javascripts/working
+-$ exists target/web/stage/javascripts/working/a_core.js
+-$ exists target/web/stage/javascripts/working/b_menu.js
+-$ exists target/web/stage/javascripts/working/c_fields.js
+# Others are not filtered
+$ exists target/web/stage/javascripts/x.coffee
+$ exists target/web/stage/javascripts/x.js
+$ exists target/web/stage/javascripts/x.js.map
+# Modules in lib are not filtered
+$ exists target/web/stage/lib/vendor/x.coffee
+$ exists target/web/stage/lib/vendor/x.js
+$ exists target/web/stage/lib/vendor/x.js.map
